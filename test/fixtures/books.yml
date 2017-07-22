@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  location: MyString
+  converter: MyString
+  heads: 
+  language: MyString
+  pubdate: 1
+
+two:
+  title: MyString
+  author: MyString
+  location: MyString
+  converter: MyString
+  heads: 
+  language: MyString
+  pubdate: 1
