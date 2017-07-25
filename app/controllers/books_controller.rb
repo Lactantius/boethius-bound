@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    @project_item = current_project.project_items.new
   end
 
   # GET /books/1
