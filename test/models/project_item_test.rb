@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class ProjectItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  setup do
+    @project_item = ProjectItem.new(font: "Palatino")
+  end
+
+  test "should be valid" do
+    assert @project_item.valid?
+  end
+
 end
