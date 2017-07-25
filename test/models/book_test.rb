@@ -12,4 +12,9 @@ class BookTest < ActiveSupport::TestCase
     assert @book.valid?
   end
 
+  test "should reject string publication dates" do
+    @book.pubdate = "bob"
+    refute @book.valid?
+  end
+
 end
