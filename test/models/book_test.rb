@@ -22,4 +22,24 @@ class BookTest < ActiveSupport::TestCase
     refute @book.valid?
   end
 
+  test "should reject missing author" do
+    @book.author = ''
+    refute @book.valid?
+  end
+
+  test "should reject missing title" do
+    @book.title = ''
+    refute @book.valid?
+  end
+
+  test "should reject missing converter" do
+    @book.converter = ''
+    refute @book.valid?
+  end
+
+  test "should reject missing language" do
+    @book.language = ''
+    refute @book.valid?
+  end
+
 end
