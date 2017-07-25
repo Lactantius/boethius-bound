@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
 
-  def setup
+  setup do
     @book = Book.new(title: "Adventures of Bob", author: "Bob Bobson",
                      location: "/dev/null", converter: "BOB",
                      language: "english", pubdate: 1875)
@@ -14,6 +14,11 @@ class BookTest < ActiveSupport::TestCase
 
   test "should reject string publication dates" do
     @book.pubdate = "bob"
+    refute @book.valid?
+  end
+
+  test "should reject missing location" do
+    @book.location = ''
     refute @book.valid?
   end
 
