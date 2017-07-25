@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  book: one
+  font: MyString
+  chapters: 
+  parts: 
+  books: 
+  sections: 
+
+two:
+  project: two
+  book: two
+  font: MyString
+  chapters: 
+  parts: 
+  books: 
+  sections: 
