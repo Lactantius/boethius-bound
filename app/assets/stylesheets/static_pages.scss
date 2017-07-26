@@ -1,20 +1,24 @@
 @import "application_variables";
 
-.grid {
-  display: flex;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1.62fr;
+  grid-gap: 10px;
 }
 
 .grid-cell {
   flex: 1;
+  grid-row-start: 1;
+  grid-row-end:   2;
 }
 
 .home-img {
-  width: 460px;
-  height: 570px;
+  width: 100%;
   padding: 10px;
 }
 
 .splash-text-container {
+  margin: $spacing-unit;
   h1 {
     font-size: $base-font-size * 3;
   }
