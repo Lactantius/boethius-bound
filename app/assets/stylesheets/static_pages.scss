@@ -1,3 +1,5 @@
+@import "application_variables";
+
 .grid {
   display: flex;
 }
@@ -10,4 +12,13 @@
   width: 460px;
   height: 570px;
   padding: 10px;
+}
+
+.splash-text-container {
+  h1 {
+    font-size: $base-font-size * 3;
+  }
+  h2 {
+    font-size: $base-font-size * 1.5;
+  }
 }

@@ -15,6 +15,13 @@
  */
 
 /**
+ Main variables
+ */
+
+@import "application_variables";
+$base-font-size: 16px;
+
+/**
  * The usual reset
  */
 body, h1, h2, h3, h4, h5, h6,
@@ -32,6 +39,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-feature-settings: "kern" 1;
+  color: $text-color;
 }
 
 main {
