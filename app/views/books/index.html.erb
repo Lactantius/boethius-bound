@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<% @books.each do |book| %>
+  <%= render 'book_row', book: book, project_item: @project_item %>
+<% end %>
+<%= link_to "View book selections.", books_selection_path %>
+
 <h1>Books</h1>
 
 <table>

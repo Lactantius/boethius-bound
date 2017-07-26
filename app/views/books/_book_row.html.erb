@@ -1,0 +1,6 @@
+<h4><%= book.title %></h4>
+<%= form_for project_item do |item| %>
+  <%= item.text_field :font, value: "Palatino" %>
+  <%= item.hidden_field :book_id, value: book.id %>
+  <%= item.submit "Add to Project" %>
+<% end %>
