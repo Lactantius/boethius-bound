@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
     else
       Project.new
     end
+  end
 
 end
