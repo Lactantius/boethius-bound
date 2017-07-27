@@ -7,16 +7,11 @@
     </ul>
   </div>
 <% end %>
-<% if @project_items.size == 0 %>
-  <p>
-  There are no books here. <%= link_to "Add some books.", books_path %>
-  </p>
-<% else %>
-  <% @project_items.each do |project_item| %>
-    <%= render 'books_selections/books_selection_row',
-      book: project_item.book, project_item: project_item %>
-  <% end %>
-  <p>
-  <%= link_to "Add more books.", books_path %>
-  </p>
+
+<%= form_for @project do |project| %>
+  <%= project.label :name %>
+  <%= project.text_field :name %>
+  <%= project.submit "Start Project" %>
 <% end %>
+
+<%= link_to "Add Books", books_path %>
