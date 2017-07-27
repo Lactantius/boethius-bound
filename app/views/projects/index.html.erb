@@ -1,0 +1,13 @@
+<h1>Your Projects</h1>
+
+<% if @projects.empty? %>
+  <p>You have no projects.</p>
+<% else %>
+  <% @projects.each do |project| %>
+    <div class="row">
+      <%= project.name %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Start a new project", new_project_path %>

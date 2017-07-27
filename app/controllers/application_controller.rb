@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if !session[:project_id].nil?
       Project.find(session[:project_id])
     else
-      Project.new
+      redirect_to projects_url
     end
   end
 

@@ -1,0 +1,22 @@
+<% if !@project_item.nil? && @project_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @project_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @project_items.size == 0 %>
+  <p>
+  There are no books here. <%= link_to "Add some books.", books_path %>
+  </p>
+<% else %>
+  <% @project_items.each do |project_item| %>
+    <%= render 'books_selections/books_selection_row',
+      book: project_item.book, project_item: project_item %>
+  <% end %>
+  <p>
+  <%= link_to "Add more books.", books_path %>
+  </p>
+<% end %>

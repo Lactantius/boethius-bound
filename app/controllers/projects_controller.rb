@@ -1,10 +1,18 @@
 class ProjectsController < ApplicationController
 
-  def new
+  before_action :authenticate_user!
+
+  def index
+    @user = current_user
+    @projects = @user.projects
   end
 
   def show
-    @project_items = current_project.project_items
+    @project = Project.find(params[:id])
+  end
+  
+  def new
+    @project = Project.new(user_id: current_user.id)
   end
 
 end
