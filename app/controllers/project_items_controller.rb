@@ -1,5 +1,7 @@
 class ProjectItemsController < ApplicationController
 
+  before_action :set_project_item, only: [:update, :destroy]
+
   def create
     @project = current_project
     @project_item = @project.project_items.build(project_item_params)
@@ -11,23 +13,27 @@ class ProjectItemsController < ApplicationController
   end
 
   def update
-    @project = current_project
-    @project_item = @project.project_items.find(params[:id])
-    @project_item.update_attributes(project_item_params)
-    @project_items = @project.project_items
+    if @project_item.update(project_item_params)
+      redirect_to @project, notice: 'Book updated.'
+    else
+      redirect_to @project, notice: 'Book failed to update.'
+    end
   end
 
   def destroy
-    @project = current_project
-    @project_item = @project.project_items.find(params[:id])
     @project_item.destroy
-    @project_items = @project.project_items
+    redirect_to books_selection_path, notice: 'Book deleted.'
   end
  
   private
 
     def project_item_params
       params.require(:project_item).permit(:project_id, :book_id, :font)
+    end
+
+    def set_project_item
+      @project = current_project
+      @project_item = @project.project_items.find(params[:id])
     end
 
 end
