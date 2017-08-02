@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_project, only: [:show, :destroy]
 
   def index
     @user = current_user
@@ -8,7 +9,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
     set_project_id @project # This feels like the wrong way.
   end
   
@@ -27,10 +27,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project.destroy
+    redirect_to projects_url, notice: 'Project deleted.'
+  end
+  
   private
   
     def project_params
       params.require(:project).permit(:user_id, :name)
+    end
+
+    def set_project
+      @project = Project.find(params[:id])
     end
 
     def set_project_id project

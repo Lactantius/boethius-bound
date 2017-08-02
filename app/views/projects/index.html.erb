@@ -6,6 +6,9 @@
   <% @projects.each do |project| %>
     <div class="row">
       <%= project.name %>
+      <%= link_to "Edit", project %>
+      <%= link_to "Delete", project, method: :delete,
+                            data: {confirm: 'Are you sure?' } %> 
     </div>
   <% end %>
 <% end %>
