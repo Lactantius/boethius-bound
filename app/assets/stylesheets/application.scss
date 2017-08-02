@@ -76,3 +76,41 @@ a {
     color: grey;
   }
 }
+
+/**
+ * Header
+ */
+
+header {
+  padding: 0px $spacing_unit 0px $spacing_unit;
+  flex-direction: row;
+  justify-content: space-between;
+
+  nav {
+    ul {
+      list-style-type: none;
+      display: flex;
+      li {
+        float: right;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.header-home-link {
+  float: left;
+  color: white;
+  &:visited {
+    color: white;
+  }
+}
+
+.home-link-container {
+  float: left;
+}
