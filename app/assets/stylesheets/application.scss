@@ -46,6 +46,8 @@ body {
 
 main {
   flex: 1;
+  margin-left: $spacing_unit;
+  margin-right: $spacing_unit;
 }
 
 header, footer {
@@ -57,8 +59,11 @@ header, footer {
   padding: 5px;
   box-sizing: border-box;
   a {
-    color: white;
+    color: $grey-color-light;
     font-size: 20px;
+    &:visited {
+      color: $grey-color-light;
+    }
   }
 }
 
@@ -104,13 +109,9 @@ header {
 }
 
 .header-home-link {
-  float: left;
+  font-size: 30px;
   color: white;
   &:visited {
     color: white;
   }
-}
-
-.home-link-container {
-  float: left;
 }
