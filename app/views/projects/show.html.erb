@@ -1,5 +1,7 @@
-<h1>New Project</h1>
+<h1><%= @project.name %></h1>
+<h3><%= link_to "See all projects", projects_path %></h3>
 
-<%= render 'projects/project_form' %>
+<%= render 'projects/project_form', project: @project %>
 
 <%= link_to "Add Books", books_path %>
+<%= link_to "Back", projects_path %>
