@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_project, only: [:show, :destroy]
+  before_action :set_project, only: [:show, :update, :destroy]
 
   def index
     @user = current_user
@@ -24,6 +24,14 @@ class ProjectsController < ApplicationController
       set_project_id @project
     else
       render :new, notice: 'Project failed to save.'
+    end
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Project updated.'
+    else
+      render :show # I am not sure of the use of a separate edit.
     end
   end
 
