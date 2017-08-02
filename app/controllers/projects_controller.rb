@@ -9,20 +9,19 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    set_project_id @project # This feels like the wrong way.
   end
   
   def new
-    @user = current_user
-    # @project = Project.new(user_id: current_user.id)
-    @project = @user.projects.build(project_params)
+    @project = Project.new
   end
 
   def create
     @user = current_user
-    # @project = Project.new(user_id: current_user.id)
     @project = @user.projects.build(project_params)
     if @project.save
       redirect_to @project, notice: 'Project saved successfully.'
+      set_project_id @project
     else
       render :new, notice: 'Project failed to save.'
     end
@@ -32,6 +31,10 @@ class ProjectsController < ApplicationController
   
     def project_params
       params.require(:project).permit(:user_id, :name)
+    end
+
+    def set_project_id project
+      session[:project_id] = project.id
     end
 
 end
