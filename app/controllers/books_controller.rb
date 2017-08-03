@@ -4,8 +4,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
-    @project_item = current_project.project_items.new
+    if session[:project_id]
+      @project_item = Project.find(session[:project_id])
+                             .project_items.new
+      @books = Book.all
+    else
+      redirect_to projects_url
+    end
   end
 
   # GET /books/1

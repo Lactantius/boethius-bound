@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_project
 
   def current_project
-    if !session[:project_id].nil?
+    if session[:project_id]
       Project.find(session[:project_id])
     else
       redirect_to projects_url

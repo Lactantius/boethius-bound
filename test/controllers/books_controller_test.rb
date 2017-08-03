@@ -1,14 +1,27 @@
 require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
+
+  include Devise::Test::IntegrationHelpers
+  # include Devise::Controllers::Helpers
+  # include Devise::Controllers::Helpers::ClassMethods
+
   setup do
     @book = books(:one)
+    @user = users(:normal)
   end
 
-  test "should get index" do
+  test "should redirect index to projects if no project id" do
     get books_url
-    assert_response :success
+    assert_response :redirect
   end
+
+  # Broken test; not sure why.
+  # test "should get book index if project id" do
+  #   sign_in users(:normal)
+  #   current_user.user_session[:project_id] = 1
+  #   assert current_user.user_session[:project_id]
+  # end
 
   test "should get new" do
     get new_book_url

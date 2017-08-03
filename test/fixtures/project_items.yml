@@ -8,6 +8,7 @@ one:
   parts: 
   books: 
   sections: 
+  id: 1
 
 two:
   project: two
@@ -17,3 +18,4 @@ two:
   parts: 
   books: 
   sections: 
+  id: 2
