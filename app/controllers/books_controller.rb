@@ -16,6 +16,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @project_item = Project.find(session[:project_id])
+                           .project_items.new
   end
 
   # GET /books/new

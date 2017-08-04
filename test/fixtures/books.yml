@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  author: MyString
-  location: MyString
-  converter: MyString
+  title: 'Bob’s Book'
+  author: 'Bob Bobson'
+  location: 'bobstuff/bob.xml'
+  converter: 'BOB_CONVERTER'
   heads: 
-  language: MyString
-  pubdate: 1
+  language: 'english'
+  pubdate: 1999
 
 two:
   title: MyString

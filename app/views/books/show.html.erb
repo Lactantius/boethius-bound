@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_with(model: @project_item, local: true) do |form| %>
+  <%= form.text_field :font, value: "Palatino" %>
+  <%= form.hidden_field :book_id, value: @book.id %>
+  <%= form.submit "Add to Project" %>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
