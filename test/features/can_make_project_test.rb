@@ -19,7 +19,7 @@ class CanMakeProjectTest < Capybara::Rails::TestCase
     page.fill_in 'project-name', with: 'Bob’s Project'
     page.click_button 'Create Project'
     assert page.has_content?('Bob’s Project')
-    click_on 'Add Books'
+    click_on 'Add some books.'
     assert page.has_content?('Books')
     click_on "#{books(:one).title}"
     assert page.has_content?("#{books(:one).title}")

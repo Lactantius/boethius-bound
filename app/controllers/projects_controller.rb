@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   def show
     set_project_id @project # This feels like the wrong way.
+    @project_items = @project.project_items
   end
   
   def new
