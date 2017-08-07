@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for user management
 gem 'devise'
 
+# Use Boethius for PDF building
+gem 'boethius'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
