@@ -10,10 +10,10 @@ one:
   pubdate: 1999
 
 two:
-  title: MyString
-  author: MyString
-  location: MyString
-  converter: MyString
+  title: 'Ted’s Book'
+  author: 'Ted Tedson'
+  location: 'tedstuff/ted.xml'
+  converter: 'TED_CONVERTER'
   heads: 
-  language: MyString
-  pubdate: 1
+  language: 'latin'
+  pubdate: 1453
