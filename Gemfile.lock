@@ -44,7 +44,11 @@ GEM
     bcrypt (3.1.11)
     bindex (0.5.0)
     boethius (0.1.0)
+    brakeman (3.7.0)
     builder (3.2.3)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (9.0.6)
     capybara (2.14.4)
       addressable
@@ -210,6 +214,8 @@ PLATFORMS
 
 DEPENDENCIES
   boethius
+  brakeman
+  bundler-audit
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
