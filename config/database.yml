@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   database: boethius_bound_production
+
+staging:
+  <<: *default
+  database: boethius_bound_staging
