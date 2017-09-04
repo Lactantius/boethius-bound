@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 # Use Boethius for PDF building
-gem 'boethius', :git => 'https://github.com/lactantius/boethius.git'
+gem 'boethius', :git => 'https://github.com/lactantius/boethius.git',
+                :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

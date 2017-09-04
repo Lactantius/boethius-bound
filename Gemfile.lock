@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/lactantius/boethius.git
+  revision: b27681522ced249159b4b7a81a850b5f7443fe90
+  branch: master
+  specs:
+    boethius (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,7 +52,6 @@ GEM
     arel (8.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    boethius (0.1.0)
     brakeman (3.7.0)
     builder (3.2.3)
     bundler-audit (0.6.0)
@@ -251,7 +257,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  boethius
+  boethius!
   brakeman
   bundler-audit
   byebug
@@ -281,4 +287,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
