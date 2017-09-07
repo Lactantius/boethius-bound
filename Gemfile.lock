@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/lactantius/boethius.git
-  revision: b27681522ced249159b4b7a81a850b5f7443fe90
+  revision: 396a9fbb441e962bd5a9264f079213081b262735
   branch: master
   specs:
     boethius (0.1.0)
@@ -278,6 +278,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   therubyracer
