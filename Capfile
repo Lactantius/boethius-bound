@@ -27,6 +27,9 @@ require "capistrano/puma"
 require "capistrano/puma/workers"
 require "capistrano/puma/monit"
 require "capistrano/puma/nginx"
+install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Workers
+install_plugin Capistrano::Puma::Monit
 
 require "capistrano/sidekiq"
 require "capistrano/sidekiq/monit"
