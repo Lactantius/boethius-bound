@@ -17,6 +17,9 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 set :keep_releases, 5
 
+# For Centos/RHEL; remove for Debian/Ubuntu?
+set :sidekiq_monit_conf_dir, '/etc/monit.d'
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
