@@ -8,7 +8,7 @@ set :repo_url, "git@github.com:lactantius/boethius-bound.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/vagrant/#{fetch(:application)}"
+set :deploy_to, "/srv/#{fetch(:application)}"
 
 set :chruby_ruby, "ruby-2.4.1"
 set :nginx_use_ssl, false
