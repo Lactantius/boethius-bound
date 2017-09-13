@@ -35,7 +35,8 @@ gem 'devise'
 
 # Use Boethius for PDF building
 gem 'boethius', :git => 'https://github.com/lactantius/boethius.git',
-                :branch => 'master'
+                :branch => 'master',
+                :require => false
 
 group :production do
   gem 'sidekiq'
