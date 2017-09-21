@@ -4,18 +4,18 @@ one:
   project:
   book: one
   font: 'BobFont'
-  chapters: 
-  parts: 
-  books: 
-  sections: 
+  chapters:
+  parts:
+  books:
+  sections:
   id: 1
 
 two:
   project:
   book: two
   font: 'TedFont'
-  chapters: 
-  parts: 
-  books: 
-  sections: 
+  chapters:
+  parts:
+  books:
+  sections:
   id: 2

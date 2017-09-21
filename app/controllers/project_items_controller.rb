@@ -24,7 +24,7 @@ class ProjectItemsController < ApplicationController
     @project_item.destroy
     redirect_to books_selection_path, notice: 'Book deleted.'
   end
- 
+
   private
 
     def project_item_params

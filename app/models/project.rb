@@ -16,4 +16,10 @@ class Project < ApplicationRecord
     attributes.deep_symbolize_keys
   end
 
+  def generate_pdf
+    @tex = Boethius::Tex.new(self.to_hash)
+    @tex.generate
+    @tex.compile
+  end
+
 end
