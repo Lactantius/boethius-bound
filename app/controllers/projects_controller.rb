@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     set_project_id @project # This feels like the wrong way.
     @project_items = @project.project_items
   end
-  
+
   def new
     @project = Project.new
   end
@@ -40,9 +40,9 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_to projects_url, notice: 'Project deleted.'
   end
-  
+
   private
-  
+
     def project_params
       params.require(:project).permit(:user_id, :name)
     end

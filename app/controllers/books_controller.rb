@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :validate_admin, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
@@ -79,4 +81,12 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :author, :location, :converter, :heads, :language, :pubdate)
     end
+
+    def validate_admin
+      authenticate_user!
+      unless current_user.admin
+      redirect_back fallback_location: root_path, alert: "Access denied"
+      end
+    end
+
 end
