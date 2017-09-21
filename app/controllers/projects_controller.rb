@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_project, only: [:show, :update, :destroy]
+  before_action :set_project, only: [:show, :update, :destroy, :compile]
 
   def index
     @user = current_user
@@ -41,10 +41,14 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project deleted.'
   end
 
+  def compile
+    @project.generate_pdf
+  end
+
   private
 
     def project_params
-      params.require(:project).permit(:user_id, :name)
+      params.require(:project).permit(:user_id, :name, :id)
     end
 
     def set_project

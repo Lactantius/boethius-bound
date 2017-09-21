@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
- 
+
   # Having trouble with fixtures.
   test "to_hash function" do
     @project = projects(:one)

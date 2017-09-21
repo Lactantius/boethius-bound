@@ -16,6 +16,10 @@
   <p>
   <%= link_to "Add more books.", books_path %>
   </p>
+  <p>
+    <%= link_to "Compile your project!", compile_project_path(id: @project.id),
+                                         method: :post %>
+  </p>
 <% end %>
 
 <%= link_to "Back", projects_path %>

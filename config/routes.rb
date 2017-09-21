@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :project_items
   resources :projects
   resource :books_selection, only: [:show]
+  post 'compile_project' => 'projects#compile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static_pages#home'
   get 'home' => 'static_pages#home'
