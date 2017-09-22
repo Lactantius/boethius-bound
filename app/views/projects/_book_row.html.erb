@@ -10,7 +10,10 @@
       <%#= item.text_field :"#{node}" %>
       <%#= section.input node, label: "Choose #{node}s", collection: 1..50 %>
       <%= "Choose #{node}s" %>
-      <%= section.collection_check_boxes :"#{node}", (1..50).to_a, :to_i, :to_s, label: "Choose #{node}s" %>
+      <%= section.collection_check_boxes :"#{node}", (1..50).to_a, :to_i, :to_s,
+                  collection_wrapper_tag: "div",
+                  collection_wrapper_class: "chapter-selection",
+                  checked: (1..50).to_a %>
     <% end %>
   <% end %>
   <%= item.hidden_field :book_id, value: book.id %>
