@@ -28,7 +28,8 @@ class ProjectItemsController < ApplicationController
   private
 
     def project_item_params
-      params.require(:project_item).permit(:project_id, :book_id, :font)
+      params.require(:project_item).permit(:project_id, :book_id, :font,
+                      selections_attributes: [:sections])
     end
 
     def set_project_item

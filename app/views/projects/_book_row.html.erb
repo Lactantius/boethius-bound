@@ -1,11 +1,16 @@
 <% selections = SelectionsDecorator.new(project_item.selections) %>
-<%= form_with(model: project_item, local: true) do |item| %>
+<%= simple_form_for project_item do |item| %>
+<%#= form_with(model: project_item, remote: false) do |item| %>
   <h4><%= book.title %></h4>
   <%= item.text_field :font, value: project_item.font %>
-  <%= item.form_with(selections) do |section| %>
-    <% Boethius.const_get(book.converter)[:sectioning_nodes].each_key do |node| %>
-      <%= item.label "Choose #{node}s" %>
-      <%= item.text_field :"#{node}" %>
+  <h3>Choose the chapters, sections, or volumes that you want.</h3>
+  <%= item.simple_fields_for(selections) do |section| %>
+    <% Boethius.const_get(book.converter)[:sectioning_nodes].each do |node, _| %>
+      <%#= item.label "Choose #{node}s" %>
+      <%#= item.text_field :"#{node}" %>
+      <%#= section.input node, label: "Choose #{node}s", collection: 1..50 %>
+      <%= "Choose #{node}s" %>
+      <%= section.collection_check_boxes :"#{node}", (1..50).to_a, :to_i, :to_s, label: "Choose #{node}s" %>
     <% end %>
   <% end %>
   <%= item.hidden_field :book_id, value: book.id %>

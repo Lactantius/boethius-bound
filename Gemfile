@@ -38,6 +38,8 @@ gem 'boethius', :git => 'https://github.com/lactantius/boethius.git',
                 :branch => 'master',
                 :require => false
 
+gem 'simple_form'
+
 group :production do
   gem 'sidekiq'
 end
