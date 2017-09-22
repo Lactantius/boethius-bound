@@ -6,6 +6,21 @@ class ProjectItem < ApplicationRecord
   validate :project_present
   validate :book_present
 
+  # def selections
+  #   read_attribute(:selections).map { |s| Selection.new(s) }
+  # end
+
+  # class Selection
+
+  #   Boethius.const_get(@book.converter)[:sectioning_nodes].each_key do |node|
+  #     attr_accessor :"#{node}"
+  #   end
+
+  #   def initialize
+  #   end
+
+  # end
+
   private
 
   def project_present

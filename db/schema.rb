@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802034554) do
+ActiveRecord::Schema.define(version: 20170921222545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170802034554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "project_id"
+    t.jsonb "selections"
     t.index ["book_id"], name: "index_project_items_on_book_id"
     t.index ["project_id"], name: "index_project_items_on_project_id"
   end
