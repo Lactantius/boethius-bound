@@ -277,6 +277,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   minitest-rails-capybara
+  nokogiri
   pg
   puma (~> 3.7)
   rails (~> 5.1.2)

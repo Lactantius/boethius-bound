@@ -38,7 +38,11 @@ gem 'boethius', :git => 'https://github.com/lactantius/boethius.git',
                 :branch => 'master',
                 :require => false
 
+# Simple Form for making those arrays of checkboxes
 gem 'simple_form'
+
+# Nokogiri for parsing XML sources for making checkboxes
+gem 'nokogiri'
 
 group :production do
   gem 'sidekiq'
