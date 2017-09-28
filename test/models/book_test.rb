@@ -32,7 +32,8 @@ class BookTest < ActiveSupport::TestCase
     refute @book.valid?
   end
 
-  test "should reject missing converter" do
+  test "should reject missing converter and content" do
+    @book.content = ''
     @book.converter = ''
     refute @book.valid?
   end
