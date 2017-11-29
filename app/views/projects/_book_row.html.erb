@@ -1,20 +1,36 @@
 <% selections = SelectionsDecorator.new(project_item.selections) %>
+
 <%= simple_form_for project_item do |item| %>
-<%#= form_with(model: project_item, remote: false) do |item| %>
   <h4><%= book.title %></h4>
   <%= item.text_field :font, value: project_item.font %>
   <h3>Choose the chapters, sections, or volumes that you want.</h3>
-  <%= item.simple_fields_for(selections) do |section| %>
-    <% Boethius.const_get(book.converter)[:sectioning_nodes].each do |node, _| %>
-      <%#= item.label "Choose #{node}s" %>
-      <%#= item.text_field :"#{node}" %>
-      <%#= section.input node, label: "Choose #{node}s", collection: 1..50 %>
-      <%= "Choose #{node}s" %>
-      <%= section.collection_check_boxes :"#{node}", (1..50).to_a, :to_i, :to_s,
-                  collection_wrapper_tag: "div",
-                  collection_wrapper_class: "chapter-selection",
-                  checked: (1..50).to_a %>
+
+  <% if book.content.empty? %>
+
+    <%= item.simple_fields_for(selections) do |section| %>
+
+      <% Boethius.const_get(book.converter)[:sectioning_nodes].each do |node, _| %>
+        <%#= item.label "Choose #{node}s" %>
+        <%#= item.text_field :"#{node}" %>
+        <%#= section.input node, label: "Choose #{node}s", collection: 1..50 %>
+        <%= "Choose #{node}s" %>
+        <%= section.collection_check_boxes :"#{node}", (1..61).to_a, :to_i, :to_s,
+                    collection_wrapper_tag: "div",
+                    collection_wrapper_class: "chapter-selection",
+                    checked: (1..61).to_a %>
+      <% end %>
+
     <% end %>
+
+  <% else %>
+
+      <%= render 'projects/node_selection',
+        item: item,
+        project_item: project_item,
+        book: project_item.book,
+        content: Nokogiri::XML(book.content),
+        selections: selections %>
+
   <% end %>
   <%= item.hidden_field :book_id, value: book.id %>
   <%= item.submit "Update" %>

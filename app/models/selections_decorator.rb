@@ -3,11 +3,13 @@ class SelectionsDecorator
   MODEL_NAME = ActiveModel::Name.new(self.class, nil, 'selections')
 
   def model_name
-    MODEL_NAME
+    # MODEL_NAME
+    @model_name
   end
 
-  def initialize(hash)
+  def initialize(hash, model_name='selections')
     @object = hash.symbolize_keys
+    @model_name = ActiveModel::Name.new(self.class, nil, model_name)
   end
 
   def method_missing(method, *args, &block)

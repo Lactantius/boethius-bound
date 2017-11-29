@@ -1,0 +1,14 @@
+<h3>Content instead of converter</h3>
+<% # parent = content.xpath("*[selectable]").first %>
+<%= item.simple_fields_for(selections) do |section| %>
+  <% subnode = node.element_children[1].name %>
+    <%= "Choose #{subnode}s" %>
+    <% subnodes_count = node.xpath("#{subnode}").count %>
+    <%= node.xpath("#{subnode}").count %>
+    <%= section.collection_check_boxes :"#{subnode}",
+      (1..subnodes_count),
+      :to_i, :to_s, collection_wrapper_tag: "div",
+      collection_wrapper_class: "chapter-selection",
+      checked: (1..subnodes_count).to_a %>
+  <% end %>
+
