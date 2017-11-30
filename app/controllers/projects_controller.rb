@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_project, only: [:show, :update, :destroy, :compile]
+  before_action :set_project, only: [:show, :update, :destroy, :compile, :download]
 
   def index
     @user = current_user
@@ -42,7 +42,17 @@ class ProjectsController < ApplicationController
   end
 
   def compile
-    @project.generate_pdf
+    @project_items = @project.project_items
+    if @project.generate_pdf
+      redirect_to @project, notice: "Project compiled successfully."
+    else
+      redirect_to @project, alert: "Error compiling project."
+    end
+  end
+
+  def download
+    @pdf = Rails.root.join("projects/#{@project[:id]}.pdf")
+    send_file @pdf, disposition: "attachment"
   end
 
   private

@@ -22,4 +22,8 @@ class Project < ApplicationRecord
     @tex.compile
   end
 
+  def pdf_exists?
+    true
+  end
+
 end

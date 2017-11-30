@@ -3,6 +3,10 @@
 
 <%= render 'projects/project_form', project: @project %>
 
+<% if @project.pdf_exists? %>
+  <%= link_to "Download PDF", download_url %>
+<% end %>
+
 <% if @project_items.size == 0 %>
   <p>
   This project has no books. <%= link_to "Add some books.", books_path %>
