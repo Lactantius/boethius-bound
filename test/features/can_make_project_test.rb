@@ -19,6 +19,7 @@ class CanMakeProjectTest < Capybara::Rails::TestCase
     page.fill_in 'project-name', with: 'Bob’s Project'
     page.click_button 'Create Project'
     assert page.has_content?('Bob’s Project')
+    refute page.has_content?('Compile your project!')
     refute page.has_content?('Download PDF')
     click_on 'Add some books.'
     assert page.has_content?('Books')
@@ -27,6 +28,7 @@ class CanMakeProjectTest < Capybara::Rails::TestCase
     page.fill_in 'project_item[font]', with: 'BobFont'
     click_on 'Add to Project'
     assert page.has_content?('Bob’s Project')
+    assert page.has_content?('Compile your project!')
     refute page.has_content?('Download PDF')
   end
 
