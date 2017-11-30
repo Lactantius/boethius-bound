@@ -22,8 +22,8 @@ class Project < ApplicationRecord
     @tex.compile
   end
 
-  def pdf_exists?
-    true
+  def pdf_exist?
+    File.exist?(Rails.root.join("projects/#{self[:id]}.pdf"))
   end
 
 end

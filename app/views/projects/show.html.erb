@@ -3,7 +3,7 @@
 
 <%= render 'projects/project_form', project: @project %>
 
-<% if @project.pdf_exists? %>
+<% if @project.pdf_exist? %>
   <%= link_to "Download PDF", download_url %>
 <% end %>
 
