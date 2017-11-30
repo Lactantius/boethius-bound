@@ -7,5 +7,6 @@
 one:
   name: "Bob Project"
   id: 1
+  user: normal
 two: {}
 # column: value

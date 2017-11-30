@@ -4,9 +4,9 @@ one:
   id: 1
   title: 'Bob’s Book'
   author: 'Bob Bobson'
-  location: 'bobstuff/bob.xml'
-  converter: 'BOB_CONVERTER'
-  heads: 
+  location: 'bob.xml'
+  converter: 'HTML_H2_TITLES'
+  heads:
   language: 'english'
   pubdate: 1999
 
@@ -16,6 +16,6 @@ two:
   author: 'Ted Tedson'
   location: 'tedstuff/ted.xml'
   converter: 'TED_CONVERTER'
-  heads: 
+  heads:
   language: 'latin'
   pubdate: 1453

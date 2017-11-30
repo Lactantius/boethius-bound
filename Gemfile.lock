@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/lactantius/boethius.git
-  revision: fad31b8cf9988aef63b00484d798c6fe822ba3fe
+  revision: 6e2373a94decbb12ca9b8e3d6c0c4810c95a9b6e
   branch: single_source
   specs:
     boethius (0.1.0)
