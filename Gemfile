@@ -35,7 +35,7 @@ gem 'devise'
 
 # Use Boethius for PDF building
 gem 'boethius', :git => 'https://github.com/lactantius/boethius.git',
-                :branch => 'single_source',
+                :branch => 'formatting',
                 :require => false
 
 gem 'simple_form'
