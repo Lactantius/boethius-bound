@@ -1,7 +1,12 @@
 <%= form_with(model: project_item, remote: false) do |item| %>
   <h4><%= book.title %></h4>
+
   <%= item.label :font %>
   <%= item.text_field :font, value: project_item.font %>
+
+  <%= item.label :page_size %>
+  <%= item.select :page_size, options_for_select( %w[Letter A4 A3 Quarto], { index: nil }) %>
+
   <%= item.hidden_field :book_id, value: book.id %>
   <%= item.submit "Update" %>
   <%= link_to "Delete", project_item, { data: { confirm: "Are you sure?" }, method: :delete } %>
