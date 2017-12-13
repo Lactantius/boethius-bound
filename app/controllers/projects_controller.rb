@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:user_id, :name, :id)
+      params.require(:project).permit(:user_id, :name, :page_size, :id)
     end
 
     def set_project

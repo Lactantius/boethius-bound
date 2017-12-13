@@ -9,7 +9,7 @@
 <% end %>
 
 <%= form_with(model: project, local: true) do |form| %>
-  
+
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -23,5 +23,9 @@
 
   <%= form.label :name %>
   <%= form.text_field :name, id: 'project-name' %>
+
+  <%= form.label :page_size %>
+  <%= form.select :page_size, options_for_select( %w[Letter A4 A3 Quarto], project.page_size ) %>
+
   <%= form.submit %>
 <% end %>
