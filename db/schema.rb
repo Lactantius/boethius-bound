@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213172957) do
+ActiveRecord::Schema.define(version: 20171213230730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(version: 20171213172957) do
     t.bigint "user_id"
     t.string "name"
     t.string "page_size"
+    t.string "preferred_units"
+    t.float "top_margin"
+    t.float "bottom_margin"
+    t.float "gutter_margin"
+    t.float "tail_margin"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

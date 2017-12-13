@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   belongs_to :user
   validates :user_id, :name, presence: true
   has_many :project_items, dependent: :destroy
+  after_initialize :init
 
   # It seems like there should be a better way.
   def to_hash
@@ -24,6 +25,13 @@ class Project < ApplicationRecord
 
   def pdf_exist?
     File.exist?(Rails.root.join("projects/#{self[:id]}.pdf"))
+  end
+
+  def init
+    self.top_margin ||= 1
+    self.bottom_margin ||= 1
+    self.gutter_margin ||= 1
+    self.tail_margin ||= 1
   end
 
 end

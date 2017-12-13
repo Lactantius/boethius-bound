@@ -27,5 +27,22 @@
   <%= form.label :page_size %>
   <%= form.select :page_size, options_for_select( %w[Letter A4 A3 Quarto], project.page_size ) %>
 
+  <h4>Margins</h4>
+
+  <%= form.label :preferred_units %>
+  <%= form.select :preferred_units, options_for_select( %w[Inches Centimeters Millimeters Points], project.preferred_units )%>
+
+  <%= form.label :top_margin %>
+  <%= form.number_field :top_margin, step: :any %>
+
+  <%= form.label :bottom_margin %>
+  <%= form.number_field :bottom_margin, step: :any %>
+
+  <%= form.label :gutter_margin %>
+  <%= form.number_field :gutter_margin, step: :any %>
+
+  <%= form.label :tail_margin %>
+  <%= form.number_field :tail_margin, step: :any %>
+
   <%= form.submit %>
 <% end %>
