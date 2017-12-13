@@ -9,6 +9,7 @@ class Project < ApplicationRecord
   # It seems like there should be a better way.
   def to_hash
     attributes = self.attributes
+    attributes[:margins] = margins_hash
     attributes[:project_items] = self.project_items.map do |item|
       item_attributes = item.attributes
       item_attributes[:book] = item.book.attributes
@@ -27,7 +28,27 @@ class Project < ApplicationRecord
     File.exist?(Rails.root.join("projects/#{self[:id]}.pdf"))
   end
 
+  def margins_hash
+
+    units = case self.preferred_units
+      when 'Inches'      then 'in'
+      when 'Millimeters' then 'mm'
+      when 'Centimeters' then 'cm'
+      when 'Points'      then 'pt'
+    end
+
+    top = self.top_margin.to_s + units
+    bottom = self.bottom_margin.to_s + units
+    gutter = self.gutter_margin.to_s + units
+    tail = self.tail_margin.to_s + units
+
+    margins = { top: top, bottom: bottom, inner: gutter, outer: tail }
+
+  end
+
   def init
+    self.preferred_units = "Inches"
+    self.page_size = "Letter"
     self.top_margin ||= 1
     self.bottom_margin ||= 1
     self.gutter_margin ||= 1
