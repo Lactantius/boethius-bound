@@ -115,3 +115,28 @@ header {
     color: white;
   }
 }
+
+/**
+ * Alerts and such
+ */
+
+.message-box {
+  padding: 10px;
+  margin: 20px auto;
+  width: 300px;
+  color: white;
+  font-weight: bold;
+
+  p {
+    padding: 10px 10px 10px 20px;
+  }
+
+  .notice {
+    background-color: #6aba1a;
+  }
+
+  .alert {
+    background-color: #f44336;
+  }
+
+}
