@@ -1,29 +1,33 @@
-<h1><%= @project.name %></h1>
 <h3><%= link_to "See all projects", projects_path %></h3>
 
-<%= render 'projects/project_form', project: @project %>
+<div class="project-container">
+  <h1><%= @project.name %></h1>
 
-<% if @project.pdf_exist? %>
-  <%= link_to "Download PDF", download_url %>
-<% end %>
+  <%= render 'projects/project_form', project: @project %>
 
-<% if @project_items.size == 0 %>
-  <p>
-  This project has no books. <%= link_to "Add some books.", books_path %>
-  </p>
-<% else %>
-  <h2>Your Books</h2>
-  <% @project_items.each do |project_item| %>
-    <%= render 'projects/book_row',
-      book: project_item.book, project_item: project_item %>
+  <% if @project.pdf_exist? %>
+    <%= link_to "Download PDF", download_url %>
   <% end %>
-  <p>
-  <%= link_to "Add more books.", books_path %>
-  </p>
-  <p>
-    <%= link_to "Compile your project!", compile_project_path(id: @project.id),
-                                         method: :post %>
-  </p>
-<% end %>
+
+  <% if @project_items.size == 0 %>
+    <p>
+    This project has no books. <%= link_to "Add some books.", books_path %>
+    </p>
+  <% else %>
+    <h2>Your Books</h2>
+    <% @project_items.each do |project_item| %>
+      <%= render 'projects/book_row',
+        book: project_item.book, project_item: project_item %>
+    <% end %>
+    <p>
+    <%= link_to "Add more books.", books_path %>
+    </p>
+    <p>
+      <%= link_to "Compile your project!", compile_project_path(id: @project.id),
+                                           method: :post %>
+    </p>
+  <% end %>
+
+</div>
 
 <%= link_to "Back", projects_path %>

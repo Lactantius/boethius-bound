@@ -21,28 +21,57 @@
     </div>
   <% end %>
 
-  <%= form.label :name %>
-  <%= form.text_field :name, id: 'project-name' %>
+  <div class="project-form-container">
 
-  <%= form.label :page_size %>
-  <%= form.select :page_size, options_for_select( %w[Letter A4 A3 Quarto], project.page_size ) %>
+    <div class="form-subgroup">
 
-  <h4>Margins</h4>
+      <h4>General Options</h4>
 
-  <%= form.label :preferred_units %>
-  <%= form.select :preferred_units, options_for_select( %w[Inches Centimeters Millimeters Points], project.preferred_units )%>
+      <%= form.label :name do %>
+        Name
+        <%= form.text_field :name, id: 'project-name' %>
+      <% end %>
 
-  <%= form.label :top_margin %>
-  <%= form.number_field :top_margin, step: :any %>
+      <%= form.label :page_size do %>
+        Page Size
+        <%= form.select :page_size, options_for_select( %w[Letter A4 A3 Quarto], project.page_size ) %>
+      <% end %>
 
-  <%= form.label :bottom_margin %>
-  <%= form.number_field :bottom_margin, step: :any %>
+    </div>
 
-  <%= form.label :gutter_margin %>
-  <%= form.number_field :gutter_margin, step: :any %>
+    <div class="form-subgroup">
 
-  <%= form.label :tail_margin %>
-  <%= form.number_field :tail_margin, step: :any %>
+      <h4>Margins</h4>
 
-  <%= form.submit %>
+      <%= form.label :preferred_units do %>
+        Preferred Units
+        <%= form.select :preferred_units, options_for_select( %w[Inches Centimeters Millimeters Points], project.preferred_units )%>
+      <% end %>
+
+      <%= form.label :top_margin do %>
+        Top Margin
+        <%= form.number_field :top_margin, step: :any %>
+      <% end %>
+
+      <%= form.label :bottom_margin do %>
+        Bottom Margin
+        <%= form.number_field :bottom_margin, step: :any %>
+      <% end %>
+
+      <%= form.label :gutter_margin do %>
+        Gutter Margin
+        <%= form.number_field :gutter_margin, step: :any %>
+      <% end %>
+
+      <%= form.label :tail_margin do %>
+        Tail Margin
+        <%= form.number_field :tail_margin, step: :any %>
+      <% end %>
+
+    </div>
+
+    <%= form.submit "Submit Project", class: "submit-button" %>
+
+  </div>
+
 <% end %>

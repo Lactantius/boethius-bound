@@ -1,3 +1,53 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "application_variables";
+
+.project-container {
+
+  width: 80%;
+  margin: auto;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.project-form-container {
+
+  border: 1px solid black;
+  padding: 20px;
+
+  .form-subgroup {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 30px;
+
+    h4 {
+      text-align: center;
+      margin-bottom: $spacing-unit / 2;
+    }
+
+  }
+
+  label {
+    margin-bottom: 5px;
+    margin-left: 40px;
+    float: left;
+
+    * {
+      margin-left: 10px;
+    }
+
+  }
+
+  .submit-button {
+    display: inherit;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 10px;
+    font-size: $base-font-size * 1.2;
+  }
+
+}
