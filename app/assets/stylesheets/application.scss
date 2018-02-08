@@ -84,6 +84,27 @@ a {
 }
 
 /**
+ * Buttons
+ */
+
+.important-button {
+  color:            white;
+  background-color: $blue-button;
+  padding:          10px;
+  font-weight:      bold;
+  border:           none;
+}
+
+.delete-button {
+  font-size: $base-font-size * .7;
+  font-style: italic;
+  display: block;
+  border: none;
+  margin-top: $spacing-unit / 3;
+  background-color: white;
+}
+
+/**
  * Header
  */
 

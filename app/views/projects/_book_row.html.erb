@@ -6,5 +6,5 @@
 
   <%= item.hidden_field :book_id, value: book.id %>
   <%= item.submit "Update" %>
-  <%= link_to "Delete", project_item, { data: { confirm: "Are you sure?" }, method: :delete } %>
+  <%= button_to "Remove Book", project_item, { data: { confirm: "Are you sure?" }, method: :delete, class: "delete-button" } %>
 <% end %>

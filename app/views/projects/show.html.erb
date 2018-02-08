@@ -14,18 +14,25 @@
     This project has no books. <%= link_to "Add some books.", books_path %>
     </p>
   <% else %>
-    <h2>Your Books</h2>
-    <% @project_items.each do |project_item| %>
-      <%= render 'projects/book_row',
-        book: project_item.book, project_item: project_item %>
-    <% end %>
-    <p>
-    <%= link_to "Add more books.", books_path %>
-    </p>
-    <p>
-      <%= link_to "Compile your project!", compile_project_path(id: @project.id),
-                                           method: :post %>
-    </p>
+
+    <div class="book-rows-container">
+
+      <h2>Your Books</h2>
+      <% @project_items.each do |project_item| %>
+        <%= render 'projects/book_row',
+          book: project_item.book, project_item: project_item %>
+      <% end %>
+
+      <p class="add-books-link">
+        <%= link_to "Add more books.", books_path %>
+      </p>
+
+    </div>
+
+      <%= button_to "Make Your Book!",
+        compile_project_path(id: @project.id),
+        method: :post, class: "important-button compile-button" %>
+
   <% end %>
 
 </div>
