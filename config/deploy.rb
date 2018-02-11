@@ -24,7 +24,9 @@ set :puma_monit_conf_dir, '/etc/monit.d'
 
 # Fix not finding postgres stuff
 task :prepare_bundle_config do
-  'chruby-exec bundle config build.pg --with-pg-config=/usr/pgsql-10/bin/pg_config'
+  on roles(:boethius_bound) do
+    execute '/usr/local/bin/chruby-exec ruby-2.4.1 -- bundle config build.pg --with-pg-config=/usr/pgsql-10/bin/pg_config'
+  end
 end
 
 before 'bundler:install', 'prepare_bundle_config'
