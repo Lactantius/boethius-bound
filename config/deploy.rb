@@ -21,6 +21,14 @@ set :keep_releases, 5
 set :sidekiq_monit_conf_dir, '/etc/monit.d'
 set :puma_monit_conf_dir, '/etc/monit.d'
 
+
+# Fix not finding postgres stuff
+task :prepare_bundle_config do
+  'chruby-exec bundle config build.pg --with-pg-config=/usr/pgsql-10/bin/pg_config'
+end
+
+before 'bundler:install', 'prepare_bundle_config'
+
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
